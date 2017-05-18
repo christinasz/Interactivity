@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Hex.css';
+import './Hex.min.css';
 
 // Returns a random hex code, corresponding to a colour
 function randomHex() {
@@ -19,16 +19,19 @@ class Hex extends Component {
         this.state = {colour: randomHex()};
         this.handleClick = this.handleClick.bind(this);
     }
+    // Clicking the background will change the colour
     handleClick(e) {
         e.preventDefault();
         this.setState({colour: randomHex()});
     }
     render() {
       return(
-        <div className="full" style={{backgroundColor: this.state.colour}} onClick={this.handleClick}>      
+        <div className="full" style={{backgroundColor: this.state.colour}}
+             onClick={this.handleClick}>
+             <textarea autoFocus></textarea>
         </div>
-      );  
+        );
     }
 }
-                
+
 export default Hex;
